@@ -4,9 +4,10 @@ Interactive plots created with bokeh plotting library for the verification datas
 
 ## Requirements
 
-* conda install bokeh 
-* conda install flask
-
+* `conda install bokeh` 
+* `conda install flask`
+* `conda install jinja2`
+ 
 ## Content
 
  * scatter_plot: example of scatter, output is sent to an HTML file.
