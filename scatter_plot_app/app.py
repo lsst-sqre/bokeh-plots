@@ -1,3 +1,10 @@
+''' 
+    Present a scatter plot embedded embedded in a flask app, 
+    using jinga2 for HTML templating.
+
+    python app.py
+'''
+
 import pandas as pd
 import jinja2
 from bokeh.plotting import figure, show, output_file
