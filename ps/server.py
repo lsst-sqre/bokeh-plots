@@ -24,7 +24,6 @@ for dataref in butler.subset(datasetType='src'):
         else:
             stats[visit]=list()
             stats[visit].append(n)
-print stats
 
 pickle.dump(stats, open( "../test/ps.pkl", "wb"))
 
