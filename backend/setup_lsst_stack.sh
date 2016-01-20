@@ -1,10 +1,12 @@
 
-tag=w_2015_40
+tag=w_latest
 
 export INSTALL_DIR=/home/afausti/lsst
 source $INSTALL_DIR/loadLSST.bash
 
 echo "Setting up stack $tag ..."
+
+eups distrib install -t $tag lsst_apps 
 
 setup -t $tag pipe_tasks
 setup -t $tag ctrl_orca
