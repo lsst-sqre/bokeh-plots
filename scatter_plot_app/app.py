@@ -1,9 +1,9 @@
-''' 
-    Present a scatter plot embedded embedded in a flask app, 
-    using jinga2 for HTML templating.
+""" 
+Example of a scatter plot embedded in a flask app, 
+using jinga2 for HTML templating.
 
-    python app.py
-'''
+python app.py
+"""
 
 import pandas as pd
 import jinja2
@@ -15,7 +15,7 @@ from flask import Flask
 app = Flask(__name__)
 
 def make_plot():
-	data = pd.read_csv("../test/sample.csv", usecols=['ra', 'dec'])
+	data = pd.read_csv("../test/sample.csv", usecols=['g', 'g_err'], nrows=1000)
 	source = ColumnDataSource(data)
 	plot = figure(webgl=True)
 	plot.scatter('ra','dec', source=source, alpha=0.1)

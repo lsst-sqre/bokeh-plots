@@ -1,16 +1,16 @@
-''' Present a scatter plot with linked histograms on both axes.
+"""
+Example of a scatter plot with linked histograms on both axes using
+bokeh server
 
-Use the ``bokeh serve`` command to run the example by executing:
+Run:
 
-    bokeh serve selection_histogram.py
+bokeh serve selection_histogram.py
 
-at your command prompt. Then navigate to the URL
+then point your browser to
 
-    http://localhost:5006/selection_histogram
+http://localhost:5006/selection_histogram
 
-in your browser.
-
-'''
+"""
 
 import numpy as np
 import pandas as pd
@@ -18,16 +18,16 @@ import pandas as pd
 from bokeh.models import BoxSelectTool, LassoSelectTool, Paragraph
 from bokeh.plotting import figure, hplot, vplot
 
-data = pd.read_csv("../test/sample.csv", usecols=['mag_auto_g', 'mag_auto_r', 'mag_auto_i'])
+data = pd.read_csv("../test/sample.csv", usecols=['g', 'r', 'i'], nrows=10000)
 
-x=data['mag_auto_r']-data['mag_auto_i']
-y=data['mag_auto_g']-data['mag_auto_r']
+x=data['r']-data['i']
+y=data['g']-data['r']
 
 
 TOOLS="pan,box_select,reset"
 
 # create the scatter plot
-p = figure(tools=TOOLS, plot_width=600, plot_height=600, title="g-r vs r-i", min_border=10, min_border_left=50)
+p = figure(tools=TOOLS, plot_width=600, plot_height=600, title="g-r vs r-i", min_border=10, min_border_left=10)
 r = p.scatter(x, y, size=3, color="#3A5785", alpha=0.1)
 
 p.xaxis.axis_label = 'r-i'
@@ -44,7 +44,7 @@ hmax = max(hhist)*1.1
 LINE_ARGS = dict(color="#3A5785", line_color=None)
 
 ph = figure(toolbar_location=None, plot_width=p.plot_width, plot_height=200, x_range=p.x_range,
-            y_range=(-hmax, hmax), title=None, min_border=10, min_border_left=50)
+            y_range=(-hmax, hmax), title=None, min_border=10, min_border_left=10)
 ph.xgrid.grid_line_color = None
 
 ph.quad(bottom=0, left=hedges[:-1], right=hedges[1:], top=hhist, color="white", line_color="#3A5785")
@@ -66,7 +66,7 @@ pv.quad(left=0, bottom=vedges[:-1], top=vedges[1:], right=vhist, color="white", 
 vh1 = pv.quad(left=0, bottom=vedges[:-1], top=vedges[1:], right=vzeros, alpha=0.5, **LINE_ARGS)
 vh2 = pv.quad(left=0, bottom=vedges[:-1], top=vedges[1:], right=vzeros, alpha=0.1, **LINE_ARGS)
 
-pv.min_border_top = 80
+pv.min_border_top = 10
 pv.min_border_left = 0
 ph.min_border_top = 10
 ph.min_border_right = 10
