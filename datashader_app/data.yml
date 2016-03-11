@@ -1,0 +1,26 @@
+file: ../test/sample.csv 
+
+initial_extent:
+  xmin: 16 
+  ymin: 0
+  xmax: 28
+  ymax: 1.2
+
+axes: 
+  - name: Depth g
+    xaxis: g
+    yaxis: g_err
+
+  - name: Depth r
+    xaxis: g
+    yaxis: g_err
+
+  - name: Depth i
+    xaxis: i
+    yaxis: i_err
+
+
+summary_fields:
+  - name: Density
+    field: g 
+
