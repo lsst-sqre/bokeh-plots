@@ -20,6 +20,7 @@ Examples use data from test/sample.csv
 - **datashader_app** example of bokeh app using datashader handling 2M data points on the browser.
 
 `> cd datashader_app` 
+
 `> python app.py --config data.yml`
 
 - **ps** diagnostic plot showing the number of process ccd failures in each visit as function of the density of sources. This example uses sample data in the test directory
